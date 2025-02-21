@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+
+{% block title %}Search Pets{% endblock %}
+
+{% block content %}
+<div class="search-container">
+    <div class="search-header hero-background">
+        <div class="hero-content">
+            <h1>Find your perfect pet</h1>
+            <p>Search through our available pets to find your new family member</p>
+        </div>
+    </div>
+
+    <form class="search-filters" method="GET" action="{{ url_for('search') }}">
+        <div class="filter-group">
+            <input type="text" name="query" value="{{ request.args.get('query', '') }}" 
+                   placeholder="Search by name..." class="search-input">
+            
+            <div class="filter-row">
+                <select name="species" class="filter-select">
+                    <option value="">All Species</option>
+                    <option value="dog" {% if request.args.get('species') == 'dog' %}selected{% endif %}>Dogs</option>
+                    <option value="cat" {% if request.args.get('species') == 'cat' %}selected{% endif %}>Cats</option>
+                    <option value="other" {% if request.args.get('species') == 'other' %}selected{% endif %}>Other Pets</option>
+                </select>
+
+                <select name="age" class="filter-select">
+                    <option value="">Any Age</option>
+                    <option value="baby">Baby</option>
+                    <option value="young">Young</option>
+                    <option value="adult">Adult</option>
+                    <option value="senior">Senior</option>
+                </select>
+
+                <select name="sort" class="filter-select">
+                    <option value="recent">Most Recent</option>
+                    <option value="oldest">Oldest First</option>
+                    <option value="name">Name A-Z</option>
+                </select>
+            </div>
+        </div>
+
+        <button type="submit" class="search-button">Search Pets</button>
+    </form>
+
+    <div class="search-results">
+        {% if pets %}
+            <div class="pet-grid">
+                {% for pet in pets %}
+                <div class="pet-card">
+                    <div class="pet-card-image">
+                        <img src="{{ url_for('uploaded_file', filename=pet.image_filename) }}" alt="{{ pet.name }}">
+                        <div class="pet-card-badge">{{ pet.species|title }}</div>
+                    </div>
+                    <div class="pet-card-content">
+                        <h3>{{ pet.name }}</h3>
+                        <p class="pet-card-breed">{{ pet.breed or 'Mixed Breed' }}</p>
+                        <p class="pet-card-age">{{ pet.age }} years old</p>
+                        <a href="{{ url_for('pet_detail', id=pet.id) }}" class="pet-card-button">View Details</a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="no-results">
+                <h2>No pets found</h2>
+                <p>Try adjusting your search filters to find more pets</p>
+            </div>
+        {% endif %}
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Auto-submit form when filters change
+    const filterSelects = document.querySelectorAll('.filter-select');
+    filterSelects.forEach(select => {
+        select.addEventListener('change', function() {
+            this.closest('form').submit();
+        });
+    });
+});
+</script>
+{% endblock %}

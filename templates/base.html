@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Adoption - {% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="page-container">
+        <nav class="navbar">
+            <div class="container">
+                <a href="{{ url_for('index') }}" class="logo">PetFinder</a>
+                <div class="nav-links">
+                    <a href="{{ url_for('index') }}">Home</a>
+                    <a href="{{ url_for('search') }}">Search</a>
+                    <a href="{{ url_for('about') }}">About Us</a>
+                    {% if current_user.is_authenticated %}
+                        {% if current_user.is_shelter %}
+                            <a href="{{ url_for('create_pet') }}">Add Pet</a>
+                        {% endif %}
+                        <a href="{{ url_for('logout') }}">Logout</a>
+                    {% else %}
+                        <a href="{{ url_for('login') }}">Login</a>
+                        <a href="{{ url_for('register') }}">Register</a>
+                    {% endif %}
+                </div>
+            </div>
+        </nav>
+
+        <main>
+            {% with messages = get_flashed_messages(with_categories=true) %}
+              {% if messages %}
+                {% for category, message in messages %}
+                  <div class="flash-message {% if category == 'success' %}bg-green-100 border-green-500 text-green-700{% else %}bg-red-100 border-red-500 text-red-700{% endif %} border-l-4 p-4 mb-4" role="alert">
+                    <p>{{ message }}</p>
+                  </div>
+                {% endfor %}
+              {% endif %}
+            {% endwith %}
+            {% block content %}
+            {% endblock %}
+        </main>
+
+        <footer>
+            <div class="container">
+                <p>&copy; 2024 Pet Adoption. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
+

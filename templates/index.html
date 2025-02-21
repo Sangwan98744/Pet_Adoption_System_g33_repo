@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <div class="container">
+        <h1>Find your new best friend</h1>
+        <p>Browse pets from our network of shelters and rescues.</p>
+        <form action="{{ url_for('search') }}" class="search-form">
+            <input type="text" name="query" placeholder="Search pets..." class="search-input">
+            <select name="species" class="filter-select">
+                <option value="">All Species</option>
+                <option value="dog">Dogs</option>
+                <option value="cat">Cats</option>
+                <option value="other">Other</option>
+            </select>
+            <button type="submit" class="search-button">Search</button>
+        </form>
+    </div>
+</section>
+
+<section class="pet-grid container">
+    {% for pet in pets.items %}
+    <div class="pet-card">
+        <div class="pet-card-image">
+            <img src="{{ url_for('uploaded_file', filename=pet.image_filename) }}" alt="{{ pet.name }}">
+            <span class="pet-card-badge">{{ pet.species }}</span>
+        </div>
+        <div class="pet-card-content">
+            <h3>{{ pet.name }}</h3>
+            <p class="pet-card-breed">{{ pet.breed }}</p>
+            <p class="pet-card-age">{{ pet.age }} years old</p>
+            <a href="{{ url_for('pet_detail', id=pet.id) }}" class="pet-card-button">Learn More</a>
+        </div>
+    </div>
+    {% endfor %}
+</section>
+
+<div class="pagination container">
+    {% if pets.has_prev %}
+        <a href="{{ url_for('index', page=pets.prev_num) }}" class="btn">Previous</a>
+    {% endif %}
+    
+    <span>Page {{ pets.page }} of {{ pets.pages }}</span>
+    
+    {% if pets.has_next %}
+        <a href="{{ url_for('index', page=pets.next_num) }}" class="btn">Next</a>
+    {% endif %}
+</div>
+{% endblock %}
+

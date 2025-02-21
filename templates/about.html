@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}About Us{% endblock %}
+
+{% block content %}
+<div class="about-container">
+    <h1>About Us</h1>
+    <p>Welcome to our pet adoption platform! We are a team of three passionate individuals dedicated to helping pets find loving homes.</p>
+
+    <div class="team">
+        <div class="member">
+            <img src="{{ url_for('static', filename='images/member1.jpg') }}" alt="Member 1">
+            <h3>Ashish</h3>
+            <p>Founder & Developer</p>
+            <p>Person 1 is responsible for developing the platform and ensuring a smooth experience for users.</p>
+        </div>
+
+        <div class="member">
+            <img src="{{ url_for('static', filename='images/member2.jpg') }}" alt="Member 2">
+            <h3>Arun Sangwan</h3>
+            <p>Animal Welfare Specialist</p>
+            <p>Person 2 has a deep passion for animals and ensures that pets are placed in the right homes.</p>
+        </div>
+
+        <div class="member">
+            <img src="{{ url_for('static', filename='images/member3.jpg') }}" alt="Member 3">
+            <h3>Disha</h3>
+            <p>Community Manager</p>
+            <p>Person 3 engages with pet lovers and adoption centers to expand our network.</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

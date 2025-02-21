@@ -1,0 +1,1299 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f9f9f9;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Navigation */
+.navbar {
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 20px;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #6504b5;
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #666;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.nav-links a:hover {
+    color: #6504b5;
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    padding: 4rem 1rem;
+    background: linear-gradient(135deg, #6504b5, #4b0082);
+    color: white;
+    margin-bottom: 2rem;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+/* Search Components */
+.search-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 20px;
+}
+
+.search-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.search-filters {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.search-input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+.filter-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.filter-select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background-color: white;
+    font-size: 1rem;
+}
+
+.search-button {
+    background-color: #6504b5;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.search-button:hover {
+    background-color: #4b0082;
+}
+
+/* Pet Grid */
+.pet-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+    padding: 1rem 0;
+}
+
+.pet-card {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+}
+
+.pet-card:hover {
+    transform: translateY(-4px);
+}
+
+.pet-card-image {
+    position: relative;
+    padding-top: 75%;
+}
+
+.pet-card-image img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.pet-card-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: rgba(101, 4, 181, 0.9);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.875rem;
+}
+
+.pet-card-content {
+    padding: 1rem;
+}
+
+.pet-card-content h3 {
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.pet-card-breed {
+    color: #666;
+    font-size: 0.875rem;
+    margin-bottom: 0.25rem;
+}
+
+.pet-card-age {
+    color: #666;
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+}
+
+.pet-card-button {
+    display: inline-block;
+    background-color: #6504b5;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 0.875rem;
+    transition: background-color 0.2s;
+}
+
+.pet-card-button:hover {
+    background-color: #4b0082;
+}
+
+/* Forms */
+form {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 2rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+form div {
+    margin-bottom: 1rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #666;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="url"],
+textarea,
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.btn {
+    background-color: #6504b5;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1rem;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.2s;
+}
+
+.btn:hover {
+    background-color: #4b0082;
+}
+
+/* Alerts */
+.alert {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 6px;
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: white;
+    padding: 2rem 0;
+    margin-top: 4rem;
+}
+
+footer p {
+    text-align: center;
+    opacity: 0.8;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar .container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .hero {
+        padding: 2rem 1rem;
+    }
+    
+    .hero h1 {
+        font-size: 2rem;
+    }
+    
+    .pet-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 1rem;
+    }
+}
+
+/* Pet Detail Page */
+.pet-detail {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.pet-detail img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+}
+
+.pet-detail h2 {
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.pet-detail p {
+    color: #666;
+    margin-bottom: 0.5rem;
+}
+
+/* No Results */
+.no-results {
+    text-align: center;
+    padding: 3rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.no-results h2 {
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.no-results p {
+    color: #666;
+}
+
+
+/* Add these styles to your existing CSS file */
+
+.hero {
+    text-align: center;
+    padding: 4rem 1rem;
+    background: linear-gradient(135deg, #6504b5, #4b0082);
+    color: white;
+    margin-bottom: 2rem;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+.search-form {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.search-input,
+.filter-select {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+.search-input {
+    flex-grow: 1;
+}
+
+.search-button {
+    background-color: #6504b5;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.search-button:hover {
+    background-color: #4b0082;
+}
+
+.pet-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+    padding: 1rem 0;
+}
+
+.pet-card {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+}
+
+.pet-card:hover {
+    transform: translateY(-4px);
+}
+
+.pet-card-image {
+    position: relative;
+    padding-top: 75%;
+}
+
+.pet-card-image img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.pet-card-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: rgba(101, 4, 181, 0.9);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.875rem;
+}
+
+.pet-card-content {
+    padding: 1rem;
+}
+
+.pet-card-content h3 {
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.pet-card-breed,
+.pet-card-age {
+    color: #666;
+    font-size: 0.875rem;
+    margin-bottom: 0.25rem;
+}
+
+.pet-card-button {
+    display: inline-block;
+    background-color: #6504b5;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 0.875rem;
+    transition: background-color 0.2s;
+}
+
+.pet-card-button:hover {
+    background-color: #4b0082;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.pagination .btn {
+    background-color: #6504b5;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 0.875rem;
+    transition: background-color 0.2s;
+}
+
+.pagination .btn:hover {
+    background-color: #4b0082;
+}
+
+
+.team {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.member {
+    text-align: center;
+    max-width: 250px;
+    flex: 1;
+}
+
+.member img {
+    width: 200px; /* Set a fixed width */
+    height: 250px; /* Set a fixed height */
+    object-fit: cover; /* Ensures uniform cropping */
+    border-radius: 50%; /* Makes images circular */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.member h3 {
+    font-size: 1.5rem;
+    margin-top: 10px;
+}
+
+.member p {
+    font-size: 1rem;
+    color: #666;
+}
+
+
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url("/static/images/pet-background.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    min-height: 100vh;
+  }
+  
+  .page-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  /* Navigation */
+  .navbar {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 1rem 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    text-decoration: none;
+  }
+  
+  .nav-links a {
+    color: #333;
+    text-decoration: none;
+    margin-left: 1rem;
+  }
+  
+  /* Main content */
+  main {
+    flex: 1;
+    padding: 2rem 0;
+  }
+  
+  /* Footer */
+  footer {
+    background-color: rgba(51, 51, 51, 0.9);
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+  }
+  
+  /* Auth pages */
+  .auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 150px);
+  }
+  
+  .auth-form {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  .auth-form h2 {
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+  
+  .form-group {
+    margin-bottom: 1rem;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+  
+  .form-group input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .btn {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .btn:hover {
+    background-color: #0056b3;
+  }
+  
+  .btn-primary {
+    background-color: #007bff;
+  }
+  
+  .auth-link {
+    text-align: center;
+    margin-top: 1rem;
+  }
+  
+  /* Flash messages */
+  .flash-message {
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border-radius: 4px;
+  }
+  
+  .bg-green-100 {
+    background-color: #d4edda;
+  }
+  
+  .border-green-500 {
+    border-color: #28a745;
+  }
+  
+  .text-green-700 {
+    color: #155724;
+  }
+  
+  .bg-red-100 {
+    background-color: #f8d7da;
+  }
+  
+  .border-red-500 {
+    border-color: #dc3545;
+  }
+  
+  .text-red-700 {
+    color: #721c24;
+  }
+  
+  /* Pet detail page */
+  .pet-detail {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .pet-detail img {
+    max-width: 100%;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+  }
+  
+  .pet-detail h2 {
+    margin-bottom: 1rem;
+  }
+  
+  .pet-detail p {
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Index and search pages */
+  .hero {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .search-form {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+  
+  .search-input,
+  .filter-select {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .search-button {
+    padding: 0.5rem 1rem;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .pet-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 2rem;
+  }
+  
+  .pet-card {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+  
+  .pet-card-image {
+    position: relative;
+  }
+  
+  .pet-card-image img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  .pet-card-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #007bff;
+    color: #fff;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+  }
+  
+  .pet-card-content {
+    padding: 1rem;
+  }
+  
+  .pet-card-content h3 {
+    margin-bottom: 0.5rem;
+  }
+  
+  .pet-card-breed,
+  .pet-card-age {
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    color: #666;
+  }
+  
+  .pet-card-button {
+    display: block;
+    text-align: center;
+    padding: 0.5rem;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+  }
+  
+  .pet-card-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+  }
+  
+  .pagination a,
+  .pagination span {
+    margin: 0 0.5rem;
+  }
+  
+  /* General styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url("/static/images/pet-background.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    min-height: 100vh;
+  }
+  
+  .page-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  /* Navigation */
+  .navbar {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 1rem 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    text-decoration: none;
+  }
+  
+  .nav-links a {
+    color: #333;
+    text-decoration: none;
+    margin-left: 1rem;
+  }
+  
+  /* Main content */
+  main {
+    flex: 1;
+    padding: 2rem 0;
+  }
+  
+  /* Footer */
+  footer {
+    background-color: rgba(51, 51, 51, 0.9);
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+  }
+  
+  /* Auth pages */
+  .auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 150px);
+  }
+  
+  .auth-form {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  .auth-form h2 {
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+  
+  .form-group {
+    margin-bottom: 1rem;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+  
+  .form-group input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .btn {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .btn:hover {
+    background-color: #0056b3;
+  }
+  
+  .btn-primary {
+    background-color: #007bff;
+  }
+  
+  .auth-link {
+    text-align: center;
+    margin-top: 1rem;
+  }
+  
+  /* Flash messages */
+  .flash-message {
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border-radius: 4px;
+  }
+  
+  .bg-green-100 {
+    background-color: #d4edda;
+  }
+  
+  .border-green-500 {
+    border-color: #28a745;
+  }
+  
+  .text-green-700 {
+    color: #155724;
+  }
+  
+  .bg-red-100 {
+    background-color: #f8d7da;
+  }
+  
+  .border-red-500 {
+    border-color: #dc3545;
+  }
+  
+  .text-red-700 {
+    color: #721c24;
+  }
+  
+  /* Pet detail page */
+  .pet-detail {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .pet-detail img {
+    max-width: 100%;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+  }
+  
+  .pet-detail h2 {
+    margin-bottom: 1rem;
+  }
+  
+  .pet-detail p {
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Index and search pages */
+  .hero {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .search-form {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+  
+  .search-input,
+  .filter-select {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .search-button {
+    padding: 0.5rem 1rem;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .pet-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 2rem;
+  }
+  
+  .pet-card {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+  
+  .pet-card-image {
+    position: relative;
+  }
+  
+  .pet-card-image img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  .pet-card-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #007bff;
+    color: #fff;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+  }
+  
+  .pet-card-content {
+    padding: 1rem;
+  }
+  
+  .pet-card-content h3 {
+    margin-bottom: 0.5rem;
+  }
+  
+  .pet-card-breed,
+  .pet-card-age {
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    color: #666;
+  }
+  
+  .pet-card-button {
+    display: block;
+    text-align: center;
+    padding: 0.5rem;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+  }
+  
+  .pet-card-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+  }
+  
+  .pagination a,
+  .pagination span {
+    margin: 0 0.5rem;
+  }
+  
+  /* Add this to your existing CSS */
+  .checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .checkbox-group input[type="checkbox"] {
+    width: auto;
+    margin: 0;
+  }
+  
+  .checkbox-group label {
+    margin: 0;
+    cursor: pointer;
+  }
+
+/* Add these styles to your existing CSS file */
+
+/* Common background image styles */
+.hero-background {
+    position: relative;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
+}
+
+.hero-background::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center;
+    filter: blur(5px);
+    transform: scale(1.1);
+    z-index: -1;
+    animation: zoomBackground 20s infinite alternate;
+}
+
+/* Animation for zoom effect */
+@keyframes zoomBackground {
+    from {
+        transform: scale(1.1);
+    }
+    to {
+        transform: scale(1.3);
+    }
+}
+
+/* Search page hero background */
+.search-header {
+    position: relative;
+    padding: 4rem 2rem;
+    color: white;
+    text-align: center;
+}
+
+.search-header::before {
+    background-image: url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/abc2.jpg-lrbJqYJCvfu1s1VhP0UxvweHJ4xmcZ.jpeg');
+}
+
+/* Pet detail hero background */
+.pet-detail-hero {
+    position: relative;
+    padding: 4rem 2rem;
+    color: white;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.pet-detail-hero::before {
+    background-image: url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/abc.jpg-n8Kks4NWLxlvautX7XnlCZHKpAW1Dq.jpeg');
+}
+
+/* Adjust text contrast */
+.hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+/* Make text more readable on the background */
+.hero-background h1,
+.hero-background h2,
+.hero-background p {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+
+/* Add these styles to your existing CSS file */
+
+/* Common styles for full-page background */
+.full-page-background {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+}
+
+.full-page-background::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: inherit;
+    filter: blur(5px);
+    transform: scale(1.1);
+    z-index: -1;
+}
+
+/* Login page background */
+.login-background {
+    background-image: url('../images/login_back.jpg');
+}
+
+/* Register page background */
+.register-background {
+    background-image: url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/abc.jpg-n8Kks4NWLxlvautX7XnlCZHKpAW1Dq.jpeg');
+}
+
+/* Style adjustments for the auth form */
+.auth-form {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    position: relative;
+    z-index: 1;
+}
+
+.auth-form h2 {
+    color: #333;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.auth-link {
+    color: #333;
+}
+
+/* Adjust navbar for better visibility on image background */
+.navbar {
+    background-color: rgba(255, 255, 255, 0.9);
+}

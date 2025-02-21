@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}{{ pet.name }}{% endblock %}
+
+{% block content %}
+<div class="pet-detail-hero hero-background">
+    <div class="hero-content">
+        <h1>{{ pet.name }}</h1>
+        <p>Meet your potential new family member</p>
+    </div>
+</div>
+
+<div class="pet-detail">
+    <img src="{{ url_for('uploaded_file', filename=pet.image_filename) }}" alt="{{ pet.name }}">
+    <p><strong>Species:</strong> {{ pet.species }}</p>
+    <p><strong>Breed:</strong> {{ pet.breed }}</p>
+    <p><strong>Age:</strong> {{ pet.age }} years old</p>
+    <p><strong>Description:</strong> {{ pet.description }}</p>
+    
+    {% if current_user.is_authenticated and not current_user.is_shelter %}
+    <h3>Submit Adoption Request</h3>
+    <form method="POST" action="{{ url_for('adopt_pet', id=pet.id) }}">
+        <div class="form-group">
+            <textarea name="message" placeholder="Why would you like to adopt this pet?" required class="form-control"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit Request</button>
+    </form>
+    {% endif %}
+    
+    {% if current_user.is_authenticated and current_user.id == pet.owner_id %}
+    <a href="{{ url_for('edit_pet', id=pet.id) }}" class="btn btn-secondary">Edit Pet</a>
+    {% endif %}
+</div>
+{% endblock %}
